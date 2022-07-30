@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Recommendations</title>
+    <title>Movie SQL</title>
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
         rel="stylesheet"
@@ -17,25 +17,64 @@
   <div class="wrapper">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">website name</a>
+          <a class="navbar-brand" href="#">Movie SQL</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Home
+                  <span class="visually-hidden">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Code</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Bios</a>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
-  <div class="text-center">
-  <div style="margin:0; top:50%; transform: translateY(160%);">
-    <h1>Discover movies you will love!</h1>
-    <p class="lead">Answer a few questions & we take care of the rest.</p>
-  </div>
-</div>  
-  <div class="text-center">
-    <div style="margin:0; top:25%; transform: translateY(320%);">
-        <button type="button" class="btn btn-primary">Start Now</button>
-  </div>
-  </div>
+      <img style="float:right; position:relative; margin-right: 10%; margin-top: 0%; transform: translateY(30%); width: 800px; height: 400 px;" src="https://www.mashed.com/img/gallery/the-real-difference-between-regular-popcorn-and-movie-theater-popcorn/intro-1592507709.jpg">
+<form>
+    <fieldset>
+      <div class="form-group" style="position:relative; margin-left: 10%; margin-top:0%; transform: translateY(30%); width:fit-content;">
+        <legend>Let's Discover a Movie!</legend>
+        <label for="exampleSelect1" class="form-label mt-4">What type of movie are you looking for?</label>
+        <select class="form-select" id="exampleSelect1">
+          <option>Cluster_1</option>
+          <option>Cluster_2</option>
+          <option>Cluster_3</option>
+          <option>Clsuter_4</option>
+          <option>Cluster_5</option>
+        </select>
+        <label for="exampleSelect2" class="form-label mt-4">How much time do you have?</label>
+        <select class="form-select" id="exampleSelect2">
+          <option>Bin_1</option>
+          <option>Bin_2</option>
+          <option>Bin_3</option>
+          <option>Bin_4</option>
+          <option>Bin_5</option>
+        </select>
+        <label for="exampleSelect2" class="form-label mt-4">How old would you like the movie to be?</label>
+        <select class="form-select" id="exampleSelect2">
+          <option>Bin_1</option>
+          <option>Bin_2</option>
+          <option>Bin_3</option>
+          <option>Bin_4</option>
+          <option>Bin_5</option>
+        </select>
+      <br>
+      <button type="submit" class="btn btn-primary">search</button>
+      </div>
+    </fieldset>
+  </form> 
 </div>
 </body>
 </html>
