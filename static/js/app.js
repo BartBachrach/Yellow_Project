@@ -1,77 +1,59 @@
-// from data.js
-const tableData = data;
+d3.selectAll("body").on("change", updatePage);
+// this line uses the d3.selectAll() method to create an event listener
+// whenever there is a change to the HTML body, the updatePage() function is called
+// that is, when an event occurs on the page, such as a selection of a dropdown menu option,
+// the updatePage() function is triggered
 
-// get table references
-var tbody = d3.select("tbody");
+function updatePage() {
+    let dropdownMenu = d3.selectAll("#selectOption").node();
+    // it defines the dropdown menu with d3.selectAll and passes in the HTML id of the dropdown menu
+    let dropdownMenuID = dropdownMenu.id;
+    // the ID of the dropdown menu is assigned to the variable dropdownMenuID (dropdown menu was previously defined as "#selectOption" from it's HTML id)
+    let selectedOption = dropdownMenu.value;
+    // whenenver a dropdown option is selected, it's value is assigned the variabel "selectedOption". Note, selectOption is the id value of the dropdown menu
+    // while selectEDOption is the option that is chosen by the user
 
-function buildTable(data) {
-  // First, clear out any existing data
-  tbody.html("");
+    console.log(dropdownMenuID);
+    console.log(selectedOption);
+    // each time updatePage() is triggered, the "id" value of the dropdown menu, as well as the menu option
+    // are printed to the console
+};
 
-  // Next, loop through each object in the data
-  // and append a row and cells for each value in the row
-  data.forEach((dataRow) => {
-    // Append a row to the table body
-    let row = tbody.append("tr");
+// OR
+// Getting a reference to the button on the page with the id property set to `click-me`
+let button1 = d3.select("#exampleSelect1");
+let button2 = d3.select("#exampleSelect2");
+let button3 = d3.select("#exampleSelect3");
 
-    // Loop through each field in the dataRow and add
-    // each value as a table cell (td)
-    Object.values(dataRow).forEach((val) => {
-      let cell = row.append("td");
-      cell.text(val);
-    });
-  });
+// Getting a reference to the input element on the page with the id property set to 'input-field'
+let inputField = d3.select("#input-field");
+
+// This function is triggered when the button is clicked
+function handleClick() {
+  console.log("Hi, button1 was clicked!");
+
+  // We can use d3 to see the object that dispatched the event
+  console.log(d3.event.target);
 }
 
-// 1. Create a variable to keep track of all the filters as an object.
-let filters = {};
+// We can use the `on` function in d3 to attach an event to the handler function
+button1.on("click", handleClick);
 
-// 3. Use this function to update the filters. 
-function updateFilters() {
+// You can also define the click handler inline
+button2.on("click", function() {
+  console.log("Hi, button2 was clicked!");
+  console.log(d3.event.target);
+});
 
-    // 4a. Save the element that was changed as a variable.
-    let changedElement = d3.select(this);
+// Event handlers are just normal functions that can do anything you want
+button3.on("click", function() {
+  console.log("Hi, button3 was clicked!");
+  console.log(d3.event.target);
+  d3.select(".giphy-me").html("<img src='https://gph.to/2Krfn0w' alt='giphy'>");
+});
 
-    // 4b. Save the value that was changed as a variable.
-    let elementValue = changedElement.property("value");
-    console.log(elementValue);
-
-    // 4c. Save the id of the filter that was changed as a variable.
-    let filterId = changedElement.attr("id")
-    console.log(filterId);
-  
-    // 5. If a filter value was entered then add that filterId and value
-    // to the filters list. Otherwise, clear that filter from the filters object.
-    if (elementValue) {
-      filters[filterId] = elementValue;
-    }
-    else {
-      delete filters[filterId];
-    }
-  
-    // 6. Call function to apply all filters and rebuild the table
-    filterTable();
-  
-  }
-  
-  // 7. Use this function to filter the table when data is entered.
-  function filterTable() {
-  
-    // 8. Set the filtered data to the tableData.
-    let filteredData = tableData;
-
-    // 9. Loop through all of the filters and keep any data that
-    // matches the filter values
-    Object.entries(filters).forEach(([key, value]) => {
-      filteredData = filteredData.filter(row => row[key] === value);
-      });
-  
-    // 10. Finally, rebuild the table using the filtered data
-    buildTable(filteredData);
-  }
-  
-  // 2. Attach an event to listen for changes to each filter
- d3.selectAll("select").on("submit", updateFilters);
-  
-  // Build the table when the page loads
-  buildTable(tableData);
+// Input fields can trigger a change event when new text is entered.
+inputField.on("change", function() {
+  var newText = d3.event.target.value;
+  console.log(newText);
+});
