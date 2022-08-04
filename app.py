@@ -7,8 +7,20 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-@app.route("/data", methods=["GET", "POST"])
-def get_data():
+@app.route("/recs", methods=["GET", "POST"])
+def get_recs():
+    return(request.form)
+
+@app.route("/about", methods=["GET", "POST"])
+def goto_about():
+    return(request.form)
+
+@app.route("/code", methods=["GET", "POST"])
+def goto_code():
+    return(request.form)
+
+@app.route("/bios", methods=["GET", "POST"])
+def goto_bios():
     return(request.form)
 
 if __name__ == "__main__":

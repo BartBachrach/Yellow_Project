@@ -24,37 +24,37 @@
           <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link active" href="#">Home
+                <a class="nav-link active" href="{{ url_for('home') }}">Home
                   <span class="visually-hidden">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="{{ url_for('goto_about') }}">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Code</a>
+                <a class="nav-link" href="{{ url_for('goto_code') }}">Code</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Bios</a>
+                <a class="nav-link" href="{{ url_for('goto_bios') }}">Bios</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
       <img style="float:right; position: relative; margin-right: 0%; margin-top: 0%; transform: translate(0%, 0%); width: auto; height: auto;" src="https://www.mashed.com/img/gallery/the-real-difference-between-regular-popcorn-and-movie-theater-popcorn/intro-1592507709.jpg">
-<form action="{{ url_for('get_data') }}" method="post">
+<form action="{{ url_for('get_recs') }}" method="post">
     <fieldset>
       <div class="form-group" style="position:relative; margin-left: 20%; margin-top:0%; transform: translate(0%, 25%); width: 450px;">
         <legend>Let's Discover a Movie!</legend>
-        <label for="exampleSelect1" class="form-label mt-4">What type of movie are you looking for?</label>
-        <select class="form-select" id="exampleSelect1" name="Genre">
+        <label for="filterSelect1" class="form-label mt-4">What type of movie are you looking for?</label>
+        <select class="form-select" id="exampleSelect1" name="genre">
           <option>Cluster_1</option>
           <option>Cluster_2</option>
           <option>Cluster_3</option>
-          <option>Clsuter_4</option>
+          <option>Cluster_4</option>
           <option>Cluster_5</option>
         </select>
-        <label for="exampleSelect2" class="form-label mt-4">How much time do you have?</label>
+        <label for="filterSelect2" class="form-label mt-4">How much time do you have?</label>
         <select class="form-select" id="exampleSelect2" name="duration">
           <option>Bin_1</option>
           <option>Bin_2</option>
@@ -62,7 +62,7 @@
           <option>Bin_4</option>
           <option>Bin_5</option>
         </select>
-        <label for="exampleSelect2" class="form-label mt-4">How old would you like the movie to be?</label>
+        <label for="filterSelect3" class="form-label mt-4">How old would you like the movie to be?</label>
         <select class="form-select" id="exampleSelect3" name="age">
           <option>Bin_1</option>
           <option>Bin_2</option>
