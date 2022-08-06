@@ -3,7 +3,9 @@
 Our goal is to create a website that makes movie recommendations based on user input. We will employ a machine-learning model to cluster similar movies based on the criteria we choose for the search filters on the website.
 
 ## ETL
-We used the MovieLens 25M Dataset (https://grouplens.org/datasets/movielens/25m/) as a starting point for our movie recommendation tool. First, we loaded the movies.csv and links.csv into Jupyter Notebooks, merged the two data frames into one, then created a movies_data_complete.csv. Next, we loaded the ratings.csv into Jupyter Notebooks, then we dropped unneeded columns, and averaged the ratings for each movie. Finally, we merged the movies_data_complete and ratings data frames into an updated movies_data_complete.csv file that we will use for our machine learning model.
+The team used the MovieLens 25M Dataset (https://grouplens.org/datasets/movielens/25m/) as a starting point for our movie recommendation tool. First, we loaded the movies.csv and links.csv into Jupyter Notebooks, merged the two data frames into one, then created a movies_data_complete.csv. Next, we loaded the ratings.csv into Jupyter Notebooks, then we dropped unneeded columns, and averaged the ratings for each movie. We then merged the movies_data_complete and ratings data frames into an updated movies_data_complete.csv. Finally, we created a data frame consisting of only the top genome score for each movie, then merged the top genome data frame into the movies_data_complete data frame to update our movies_data_complete.csv that we will use for our machine learning model.
+
+The project required the team to identify, clean, filter and repackage data from multiple .csv files that will allow our machine learning model to more easily train and produce useful insights for our movie recommendation tool. 
 
 ## Web Design Prototype
 [Web_Design_Sketch.pdf](https://github.com/BartBachrach/Yellow_Project/files/9176834/Web_Design_Sketch.pdf)
