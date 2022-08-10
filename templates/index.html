@@ -16,14 +16,14 @@
 <body>
   <div class="wrapper">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Movie SQL</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav me-auto">
-              <li class="nav-item">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Movie SQL</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
                 <a class="nav-link active" href="{{ url_for('home') }}">Home
                   <span class="visually-hidden">(current)</span>
                 </a>
@@ -55,7 +55,7 @@
           <option>I'm feeling lucky!</option>
         </select>
         <label for="filterSelect2" class="form-label mt-4">How old would you like the movie to be?</label>
-        <select class="form-select" id="exampleSelect2" name="duration">
+        <select class="form-select" id="exampleSelect2" name="year">
           <option>2022 - 2010</option>
           <option>2010 - 2000</option>
           <option>2000 - 1980</option>
@@ -63,7 +63,7 @@
           <option>1959 or older</option>
         </select>
         <label for="filterSelect3" class="form-label mt-4">Do you care how well the movie is rated?</label>
-        <select class="form-select" id="exampleSelect3" name="age">
+        <select class="form-select" id="exampleSelect3" name="rating">
           <option>Yes, show me only 4 stars and above</option>
           <option>Kind of, show me only 3 stars and above</option>
           <option>No, show me anything</option>
