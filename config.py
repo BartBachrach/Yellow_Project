@@ -1,1 +1,1 @@
-awskey = "Yellow#1"
+awskey = "#"
