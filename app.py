@@ -26,7 +26,7 @@ def home():
 @app.route("/recs", methods=["GET", "POST"])
 def get_recs():
 
-    return jsonify('sample_table')
+    return (request.form)
 
 @app.route("/about", methods=["GET", "POST"])
 def goto_about():
