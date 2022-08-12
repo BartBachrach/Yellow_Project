@@ -23,7 +23,7 @@ https://github.com/BartBachrach/Yellow_Project/blob/Database/sample_table_schema
 [Web_Design_Sketch.pdf](https://github.com/BartBachrach/Yellow_Project/files/9176834/Web_Design_Sketch.pdf)
 
 ## User Interface
-We will create a JavaScript file and HTML file that will be hosted on a website with a dropdown menu for a user to select a number of criteria, such as ratings, popularity, and genre. The code will then recommend one popular movie, and one similar, lesser-known movie that the user might enjoy.
+We will create a Flask app and HTML file that will be hosted on a website with a dropdown menu for a user to select a number of criteria, such as ratings, popularity, and genre. The code will then recommend one popular movie, and one similar, lesser-known movie that the user might enjoy.
 
 https://github.com/BartBachrach/Yellow_Project/blob/Dev_Frontend/templates/index.html
 
