@@ -3,15 +3,15 @@ from flask import Flask, url_for, render_template, redirect, json, jsonify, requ
 import random
 import os
 
-#from config import awskey
+from config import DB_USERNAME, DB_PASSWORD
 
 import psycopg2
 
 conn = psycopg2.connect(
         host="movie-project.cc10tszik781.us-east-1.rds.amazonaws.com",
         database="movies",
-        user="#",
-        password="#")
+        user=DB_USERNAME,
+        password=DB_PASSWORD)
 
 # Open a cursor to perform database operations
 cur = conn.cursor()

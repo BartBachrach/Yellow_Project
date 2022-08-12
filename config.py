@@ -1,1 +1,2 @@
-awskey = "#"
+DB_USERNAME = "#"
+DB_PASSWORD = "#"
