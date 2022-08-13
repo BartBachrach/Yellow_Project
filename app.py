@@ -1,4 +1,5 @@
 from crypt import methods
+from pkgutil import get_data
 from unittest import result
 from flask import Flask, url_for, render_template, redirect, json, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
@@ -28,15 +29,31 @@ def home():
 
 @app.route("/recs", methods=["GET", "POST"])
 def get_recs():
-    query = '''SELECT title FROM sample_table LIMIT 2;
+
+    cluster = request.form.get('class')
+    for movie in cluster:
+        print(movie)
+    
+    age = request.form.get('year')
+    for movie in age:
+        print(movie)
+
+    rating = request.form.get('rating')
+    for movie in rating:
+        print(rating)
+
+    query = '''SELECT title FROM sample_table
+    WHERE
+    class=cluster
+    AND
+    year=age
+    AND
+    rating=rating;
     '''
 
     cur.execute(query)
-    data = request.form.get('class')
-    for movie in data:
-        print(movie)
 
-    return jsonify(data)
+    return render_template(get_recs)
 
     # cur.execute(query)
     # data = cur.fetchall()
