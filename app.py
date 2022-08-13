@@ -1,11 +1,17 @@
 from crypt import methods
+from unittest import result
 from flask import Flask, url_for, render_template, redirect, json, jsonify, request
+from flask_sqlalchemy import SQLAlchemy
+import psycopg2
+import psycopg2.extras
 import random
 import os
 
+from sqlalchemy.sql import func
+
 from config import DB_USERNAME, DB_PASSWORD
 
-import psycopg2
+app = Flask(__name__)
 
 conn = psycopg2.connect(
         host="movie-project.cc10tszik781.us-east-1.rds.amazonaws.com",
@@ -16,16 +22,43 @@ conn = psycopg2.connect(
 # Open a cursor to perform database operations
 cur = conn.cursor()
 
-app = Flask(__name__)
-
 @app.route("/")
 def home():
     return render_template('index.html')
 
 @app.route("/recs", methods=["GET", "POST"])
 def get_recs():
-    query = '''SELECT * FROM sample_table;
+    query = '''SELECT title FROM sample_table LIMIT 2;
     '''
+
+    cur.execute(query)
+    data = request.form.get('class')
+    for movie in data:
+        print(movie)
+
+    return jsonify(data)
+
+    # cur.execute(query)
+    # data = cur.fetchall()
+    # for sample in data:
+    #     print(sample)
+
+    # return (request.form)
+
+@app.route("/about", methods=["GET", "POST"])
+def goto_about():
+    return render_template('about.html')
+
+@app.route("/code", methods=["GET", "POST"])
+def goto_code():
+    return render_template('code.html')
+
+@app.route("/bios", methods=["GET", "POST"])
+def goto_bios():
+    return render_template('bios.html')
+
+if __name__ == "__main__":
+    app.run(debug=True)
 
     # IF exampleSelect1 = Science Fiction, filter table to * WHERE class = 1
         # exampleSelect1 = Suspenseful, filter to * WHERE class = 0
@@ -42,25 +75,3 @@ def get_recs():
     # THEN IF exampleSelect3 = Yes - Show me only 4 stars and above.
                 # exampleSelect3 = A little bit - Show me only 3 stars and above.
                 # exampleSelect3 = No - Show me anything.     
-
-    cur.execute(query)
-    data = cur.fetchall()
-    for sample in data:
-        print(sample)
-
-    return (request.form)
-
-@app.route("/about", methods=["GET", "POST"])
-def goto_about():
-    return render_template('about.html')
-
-@app.route("/code", methods=["GET", "POST"])
-def goto_code():
-    return render_template('code.html')
-
-@app.route("/bios", methods=["GET", "POST"])
-def goto_bios():
-    return render_template('bios.html')
-
-if __name__ == "__main__":
-    app.run(debug=True)
