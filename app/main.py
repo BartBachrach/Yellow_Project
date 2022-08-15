@@ -41,22 +41,15 @@ def get_recs():
         for movie in rating:
             print(movie)
 
-        query = '''DECLARE @cluster AS INT
-        DECLARE @year as INT
-        DECLARE @rating as DOUBLE PRECISION
-        SELECT @cluster = [cluster]
-        SELECT @year = [year]
-        SELECT @rating = [rating]
-        SELECT title FROM sample_table
-        WHERE
-        cluster= @cluster
+        query = '''SELECT title FROM sample_table
+        WHERE cluster= %s
         AND
-        year= @year
+        year= %s
         AND
-        rating=@rating;
+        rating= %s;
         '''
 
-        cur.execute(query)
+        cur.execute(query, cluster, year, rating)
 
         data = cur.fetchall()
         for title in data:
