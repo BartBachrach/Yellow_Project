@@ -42,20 +42,21 @@ def get_recs():
             print(movie)
 
         query = '''SELECT title FROM sample_table
-        WHERE cluster= %s
+        WHERE cluster = %(cluster)s
         AND
-        year= %s
+        year = %(year)s
         AND
-        rating= %s;
+        rating = %(rating)s;
         '''
 
-        cur.execute(query, (cluster,), (year,), (rating,))
+        cur.execute(query, {"cluster: cluster"}, {"year: year"}, {"rating:rating"})
 
         data = cur.fetchmany(2)
         for title in data:
             print(title)
 
     return render_template('recs.html', data = data)
+conn.close()
 
 @app.route("/about", methods=["GET", "POST"])
 def goto_about():
