@@ -45,11 +45,11 @@ def get_recs():
 
         query = '''SELECT title FROM sample_table
         WHERE
-        cluster=cluster
+        cluster='cluster'
         AND
-        year=year
+        year='year'
         AND
-        rating=rating;
+        rating='rating';
         '''
 
         cur.execute(query)
@@ -58,7 +58,7 @@ def get_recs():
         for title in data:
             print(title)
 
-    return render_template('recs.html', data = title)
+    return render_template('recs.html', data = data)
 
 @app.route("/about", methods=["GET", "POST"])
 def goto_about():
