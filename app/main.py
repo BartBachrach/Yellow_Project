@@ -10,7 +10,7 @@ import os
 
 from sqlalchemy.sql import func
 
-# from config import DB_USERNAME, DB_PASSWORD
+#from config import DB_USERNAME, DB_PASSWORD
 
 app = Flask(__name__)
 
