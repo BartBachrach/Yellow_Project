@@ -49,7 +49,7 @@ def get_recs():
         rating = %s;
         '''
 
-        cur.execute(query, {"cluster": cluster}, {"year": year}, {"rating":rating})
+        cur.execute(query, cluster, year, rating)
 
         data = cur.fetchmany(2)
         for title in data:
