@@ -29,15 +29,15 @@ def home():
 def get_recs():
 
     if request.method == 'POST':
-        cluster = request.form.get('cluster')
+        cluster = request.form.get('cluster', type=int)
         for movie in cluster:
             print(movie)
         
-        year = request.form.get('year')
+        year = request.form.get('year', type=int)
         for movie in year:
             print(movie)
 
-        rating = request.form.get('rating')
+        rating = request.form.get('rating', type=int)
         for movie in rating:
             print(movie)
 
@@ -51,7 +51,7 @@ def get_recs():
 
         cur.execute(query, (cluster,), (year,), (rating,))
 
-        data = cur.fetchall()
+        data = cur.fetchmany(2)
         for title in data:
             print(title)
 
