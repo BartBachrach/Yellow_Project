@@ -49,7 +49,7 @@ def get_recs():
         rating= %s;
         '''
 
-        cur.execute(query, 'cluster', 'year', 'rating')
+        cur.execute(query, (cluster,), (year,), (rating,))
 
         data = cur.fetchall()
         for title in data:
