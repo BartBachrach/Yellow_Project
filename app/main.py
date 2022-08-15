@@ -37,7 +37,7 @@ def get_recs():
         for movie in year:
             print(movie)
 
-        rating = request.form.get('rating', type=int)
+        rating = request.form.get('rating', type=float)
         for movie in rating:
             print(movie)
 
