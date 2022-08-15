@@ -29,24 +29,24 @@ def home():
 def get_recs():
 
     if request.method == 'POST':
-        cluster = request.form.get('cluster', type=int)
+        cluster = request.form.get('cluster')
         for movie in cluster:
             print(movie)
         
-        year = request.form.get('year', type=int)
+        year = request.form.get('year')
         for movie in year:
             print(movie)
 
-        rating = request.form.get('rating', type=float)
+        rating = request.form.get('rating')
         for movie in rating:
             print(movie)
 
         query = '''SELECT title FROM sample_table
-        WHERE cluster = %(cluster)s
+        WHERE cluster = %s
         AND
-        year = %(year)s
+        year = %s
         AND
-        rating = %(rating)s;
+        rating = %s;
         '''
 
         cur.execute(query, {"cluster": cluster}, {"year": year}, {"rating":rating})
