@@ -10,15 +10,15 @@ import os
 
 from sqlalchemy.sql import func
 
-from config import DB_USERNAME, DB_PASSWORD
+# from config import DB_USERNAME, DB_PASSWORD
 
 app = Flask(__name__)
 
 conn = psycopg2.connect(
         host="movie-project.cc10tszik781.us-east-1.rds.amazonaws.com",
         database="movies",
-        user=DB_USERNAME,
-        password=DB_PASSWORD)
+        user=os.environ.get('DB_USERNAME'),
+        password=os.environ.get('DB_PASSWORD'))
 
 # Open a cursor to perform database operations
 cur = conn.cursor()
@@ -30,37 +30,35 @@ def home():
 @app.route("/recs", methods=["GET", "POST"])
 def get_recs():
 
-    cluster = request.form.get('class')
-    for movie in cluster:
-        print(movie)
-    
-    age = request.form.get('year')
-    for movie in age:
-        print(movie)
+    if request.method == 'POST':
+        cluster = request.form.get('cluster')
+        for movie in cluster:
+            print(movie)
+        
+        year = request.form.get('year')
+        for movie in year:
+            print(movie)
 
-    rating = request.form.get('rating')
-    for movie in rating:
-        print(rating)
+        rating = request.form.get('rating')
+        for movie in rating:
+            print(movie)
 
-    query = '''SELECT title FROM sample_table
-    WHERE
-    class=cluster
-    AND
-    year=age
-    AND
-    rating=rating;
-    '''
+        query = '''SELECT title FROM sample_table
+        WHERE
+        cluster=cluster
+        AND
+        year=year
+        AND
+        rating=rating;
+        '''
 
-    cur.execute(query)
+        cur.execute(query)
 
-    return render_template(get_recs)
+        data = cur.fetchall()
+        for title in data:
+            print(title)
 
-    # cur.execute(query)
-    # data = cur.fetchall()
-    # for sample in data:
-    #     print(sample)
-
-    # return (request.form)
+    return render_template('recs.html', data = title)
 
 @app.route("/about", methods=["GET", "POST"])
 def goto_about():
