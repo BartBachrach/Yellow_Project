@@ -42,11 +42,12 @@ def get_recs():
             print(movie)
 
         query = '''SELECT title FROM sample_table
-        WHERE cluster = %s
+        WHERE cluster = (cluster)
         AND
-        year = %s
+        year = (year)
         AND
-        rating = %s;
+        rating = (rating)
+        VALUES (%s, %s, %s);
         '''
 
         cur.execute(query, cluster, year, rating)
