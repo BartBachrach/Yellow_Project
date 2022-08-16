@@ -1,0 +1,52 @@
+-- Table: public.full_table
+
+-- DROP TABLE IF EXISTS public.full_table;
+
+CREATE TABLE IF NOT EXISTS public.full_table
+(
+    _c0 integer,
+    year integer,
+    "Unnamed: 0.1" integer,
+    "movieId" integer,
+    "tagId" integer,
+    relevance double precision,
+    tag text COLLATE pg_catalog."default",
+    "Unnamed: 0" integer,
+    title text COLLATE pg_catalog."default",
+    genres text COLLATE pg_catalog."default",
+    "imdbId" integer,
+    "tmdbId" double precision,
+    "number of ratings" integer,
+    rating double precision,
+    "Adventure" integer,
+    "Animation" integer,
+    "Children" integer,
+    "Comedy" integer,
+    "Fantasy" integer,
+    "Romance" integer,
+    "Drama" integer,
+    "Action" integer,
+    "Crime" integer,
+    "Thriller" integer,
+    "Horror" integer,
+    "Mystery" integer,
+    "Sci-Fi" integer,
+    "IMAX" integer,
+    "Documentary" integer,
+    "War" integer,
+    "Musical" integer,
+    "Western" integer,
+    "Film-Noir" integer,
+    "(no genres listed)" integer,
+    class integer
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.full_table
+    OWNER to postgres;
+	
+ALTER TABLE full_table
+RENAME COLUMN class TO cluster;
+
+SELECT * FROM full_table;
