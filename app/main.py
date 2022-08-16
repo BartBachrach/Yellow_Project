@@ -55,7 +55,7 @@ def get_recs():
         for title in data:
             print(title)
 
-    return render_template('recs.html', data = data)
+    return render_template('recs.html', data = title)
 conn.close()
 
 @app.route("/about", methods=["GET", "POST"])
