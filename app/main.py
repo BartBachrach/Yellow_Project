@@ -43,7 +43,7 @@ def get_recs():
 
         query = f"""
         SELECT title
-        FROM sample_title
+        FROM sample_table
         WHERE cluster = {cluster}
             and year = {int(year)}
             and rating = {rating}
