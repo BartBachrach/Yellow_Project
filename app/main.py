@@ -41,17 +41,13 @@ def get_recs():
         for movie in rating:
             print(movie)
 
-        query = '''SELECT title FROM sample_table
-        WHERE cluster = %s
-        AND
-        year = %s
-        AND
-        rating = %s
-        '''
-
-        params = (cluster, year, rating)
-
-        cur.execute(query, params)
+        query = f"""SELECT title FROM sample_table
+        WHERE cluster = {cluster}
+            AND year = {int(year)}
+            AND rating = {rating}
+        """
+        
+        cur.execute(query)
 
         data = cur.fetchmany(2)
         for title in data:
