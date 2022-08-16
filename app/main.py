@@ -41,13 +41,19 @@ def get_recs():
         for movie in rating:
             print(movie)
 
-        query = f"""
-        SELECT title
-        FROM full_table
-        WHERE cluster = {cluster}
-            and year = {int(year)}
-            and rating = {rating}
-        """
+        # query = f"""
+        # SELECT title
+        # FROM full_table
+        # WHERE cluster = {cluster}
+        #     and year = {int(year)}
+        #     and rating = {rating}
+        # """
+
+        query = '''SELECT title FROM full_table
+        WHERE cluster = cluster
+            AND year = year
+            AND rating = rating;
+        '''
 
         cur.execute(query)
 
