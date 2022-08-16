@@ -42,11 +42,11 @@ def get_recs():
             print(movie)
 
         query = '''SELECT title FROM sample_table
-        WHERE cluster = ?
+        WHERE cluster = %s
         AND
-        year = ?
+        year = %s
         AND
-        rating = ?
+        rating = %s
         '''
 
         params = (cluster, year, rating)
