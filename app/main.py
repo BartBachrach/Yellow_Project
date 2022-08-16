@@ -50,9 +50,9 @@ def get_recs():
         # """
 
         query = '''SELECT title FROM full_table
-        WHERE cluster = cluster
-        AND year = year
-        AND rating = rating;
+        WHERE cluster=cluster
+        AND year=year
+        AND rating=rating;
         '''
 
         cur.execute(query)
