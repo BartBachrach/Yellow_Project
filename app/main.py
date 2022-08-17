@@ -28,40 +28,40 @@ def home():
 @app.route("/recs", methods=["GET", "POST"])
 def get_recs():
 
-# if request.method == 'POST':
-    cluster = request.form.get('cluster')
-    for movie in cluster:
-        print(movie)
-    
-    year = request.form.get('year')
-    for movie in year:
-        print(movie)
+    if request.method == 'POST':
+        cluster = request.form.get('cluster')
+        for movie in cluster:
+            print(movie)
+        
+        year = request.form.get('year')
+        for movie in year:
+            print(movie)
 
-    rating = request.form.get('rating')
-    for movie in rating:
-        print(movie)
+        rating = request.form.get('rating')
+        for movie in rating:
+            print(movie)
 
-    query = f"""
-    SELECT title
-    FROM full_table
-    WHERE cluster = {cluster}
-        and year = {year}
-        and rating = {rating}
-    """
+        query = f"""
+        SELECT title
+        FROM full_table
+        WHERE cluster = {cluster}
+            and year = {year}
+            and rating = {rating}
+        """
 
-    # query = '''SELECT title FROM full_table
-    # WHERE cluster=cluster
-    # AND year=year
-    # AND rating=rating;
-    # '''
+        # query = '''SELECT title FROM full_table
+        # WHERE cluster=cluster
+        # AND year=year
+        # AND rating=rating;
+        # '''
 
-    cur.execute(query)
+        cur.execute(query)
 
-    data = cur.fetchall()
-    for title in data:
-        print(title)
+        data = cur.fetchall()
+        for title in data:
+            print(title)
 
-    return render_template('recs.html', data = data)
+        return render_template('recs.html', data = data)
 conn.close()
 
 @app.route("/about", methods=["GET", "POST"])
