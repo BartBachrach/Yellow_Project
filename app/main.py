@@ -44,9 +44,9 @@ def get_recs():
     query = f"""
     SELECT title
     FROM full_table
-    WHERE cluster = {int(cluster)}
-        and year = {int(year)}
-        and rating = {float(rating)}
+    WHERE cluster = {cluster}
+        and year = {year}
+        and rating = {rating}
     """
 
     # query = '''SELECT title FROM full_table
