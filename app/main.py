@@ -50,7 +50,8 @@ def get_recs():
         FROM full_table
         WHERE cluster = {cluster}
             and year BETWEEN {year_1} and {year_2}
-            and rating BETWEEN {rating_1} and {rating_2};
+            and rating BETWEEN {rating_1} and {rating_2}
+            ORDER BY RANDOM();
         """
 
         cur.execute(query)
