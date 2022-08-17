@@ -62,7 +62,6 @@ def get_recs():
             print(title)
 
         return render_template('recs.html', data = data)
-conn.close()
 
 @app.route("/about", methods=["GET", "POST"])
 def goto_about():
