@@ -15,18 +15,17 @@ In order to cluster the movies, we found the top most-relevant tag for each movi
 We further attempted to experiment with more clusters, but those simply represented the next most popular tags from what was already clustered, and did not represent a true multivariate cluster, and for the purposes of this project, we limited the number of clusters to five for simplicitys sake. 
 
 ## Database
-We used PySpark and PostgreSQL to load our data into an Amazon RDS instance.
+We used Amazon RDS to create a PostgreSQL DB Instance. We then connected our Amazon RDS to the PostgreSQL database using pgAdmin4. Lastly, we used PySpark to import or data into a SQL table.
 
 https://github.com/BartBachrach/Yellow_Project/blob/Database/movie_data.ipynb
 
-https://github.com/BartBachrach/Yellow_Project/blob/Database/sample_table_schema.txt
-
-## Web Design Prototype
-[Web_Design_Sketch.pdf](https://github.com/BartBachrach/Yellow_Project/files/9176834/Web_Design_Sketch.pdf)
+https://github.com/BartBachrach/Yellow_Project/blob/Database/full_table_schema
 
 ## User Interface
-We will create a Flask app and HTML file that will be hosted on a website with a dropdown menu for a user to select a number of criteria, such as ratings, popularity, and genre. The code will then recommend one popular movie, and one similar, lesser-known movie that the user might enjoy.
+Using a Flask application and HTML files, we created a website that we deployed from Heroku. The main page has three drop-down menus that filter the data based on the user's selections. The options for types of movies are based on the five clusters created from our machine learning model. When you click search, it takes you to a recommendations page where one movie title is displayed that matches your search specifications. The address for our website is: https://yellow-project.herokuapp.com/.
 
-https://github.com/BartBachrach/Yellow_Project/blob/Dev_Frontend/templates/index.html
+<img width="1440" alt="Screen Shot 2022-08-17 at 5 52 40 PM" src="https://user-images.githubusercontent.com/100643519/185257786-5fd3ca3e-09ca-444e-bb53-f01d884a3baf.png">
 
-<img width="1552" alt="Screen Shot 2022-07-30 at 6 02 15 PM" src="https://user-images.githubusercontent.com/100643519/182002956-f37e5136-c338-41cd-9f56-d9c406859bfc.png">
+<img width="1440" alt="Screen Shot 2022-08-17 at 5 52 55 PM" src="https://user-images.githubusercontent.com/100643519/185257819-54cc3465-f454-455f-87f0-442fd7c8445e.png">
+
+<img width="1440" alt="Screen Shot 2022-08-17 at 5 53 08 PM" src="https://user-images.githubusercontent.com/100643519/185257859-bb54739d-d0a6-4aed-a33b-c81ba483bbdb.png">
