@@ -51,12 +51,13 @@ def get_recs():
         WHERE cluster = {cluster}
             and year BETWEEN {year_1} and {year_2}
             and rating BETWEEN {rating_1} and {rating_2}
-            ORDER BY RANDOM();
+            ORDER BY RANDOM()
+            LIMIT 1;
         """
 
         cur.execute(query)
 
-        data = cur.fetchmany(2)
+        data = cur.fetchall()
         for title in data:
             print(title)
 
