@@ -26,9 +26,6 @@ We further attempted to experiment with more clusters, but those simply represen
 ## Database
 We used Amazon RDS to create a PostgreSQL DB Instance. We then connected our Amazon RDS to the PostgreSQL database using pgAdmin4. Lastly, we used PySpark to import or data into a SQL table.
 
-![this is an image](https://github.com/BartBachrach/Yellow_Project/blob/Database/movie_data.ipynb)
-
-https://github.com/BartBachrach/Yellow_Project/blob/Database/full_table_schema
 
 ## User Interface
 Using a Flask application and HTML files, we created a website that we deployed from Heroku. The main page has three drop-down menus that filter the data based on the user's selections. The options for types of movies are based on the five clusters created from our machine learning model. When you click search, it takes you to a recommendations page where one movie title is displayed that matches your search specifications. The address for our website is: https://yellow-project.herokuapp.com/.
