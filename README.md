@@ -1,5 +1,5 @@
 # Yellow_Project
-## Movie Recommendations
+## Movie Finder
 
 A movie recommendation engine developed using:
 
