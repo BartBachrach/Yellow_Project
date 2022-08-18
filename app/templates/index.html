@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Movie SQL</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+        crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="wrapper">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Movie SQL</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <a class="nav-link active" href="{{ url_for('home') }}">Home
+                  <span class="visually-hidden">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('goto_about') }}">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('goto_code') }}">Code</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('goto_bios') }}">Bios</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <img style="float:right; position: relative; margin-right: 0%; margin-top: 0%; transform: translate(0%, 0%); width: auto; height: auto;" src="https://www.mashed.com/img/gallery/the-real-difference-between-regular-popcorn-and-movie-theater-popcorn/intro-1592507709.jpg">
+<form action="{{ url_for('get_recs') }}" method="post">
+    <fieldset>
+      <div class="form-group" style="position: absolute; margin-left: 10%; margin-right: 10%; margin-top:0%; transform: translate(0%, 25%); min-width: 30; max-width: 30">
+        <legend>Let's Discover a Movie!</legend>
+        <label for="filterSelect1" class="form-label mt-4">What type of movie are you looking for?</label>
+        <select class="form-select" id="cluster" name="cluster">
+          <option value = 1>Science Fiction</option>
+          <option value = 0>Suspenseful</option>
+          <option value = 2>Animated</option>
+          <option value = 4>Critically Acclaimed</option>
+          <option value = 3>I'm feeling lucky!</option>
+        </select>
+        <label for="filterSelect2" class="form-label mt-4">How old would you like the movie to be?</label>
+        <select class="form-select" id="year" name="year">
+          <option value = 2010,2022>2022 - 2010</option>
+          <option value = 2000,2010>2010 - 2000</option>
+          <option value = 1980,2000>2000 - 1980</option>
+          <option value = 1960,1980>1980 - 1960</option>
+          <option value = 1930,1959>1959 or older</option>
+        </select>
+        <label for="filterSelect3" class="form-label mt-4">Do you care how well the movie is rated?</label>
+        <select class="form-select" id="rating" name="rating">
+          <option value = 4,5 >Yes - Show me only 4 stars and above.</option>
+          <option value = 3,5>A little bit - Show me only 3 stars and above.</option>
+          <option value = 1,5>No - Show me anything.</option>
+        </select>
+      <br>
+      <button action="{{ url_for('get_recs') }}" type="submit" class="btn btn-primary">search</button>
+      </div>
+    </fieldset>
+  </form> 
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>
