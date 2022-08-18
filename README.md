@@ -1,8 +1,8 @@
-# Yellow_Project
-## Movie Finder
+# Movie Finder
+### Movie Recommendation Engine
 
-A movie recommendation engine developed using:
-
+## Overview
+A movie recommendation website developed using:
   - Python
   - Machine Learning
   - Amazon AWS
