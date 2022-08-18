@@ -71,9 +71,9 @@ def goto_about():
 def goto_code():
     return render_template('code.html')
 
-@app.route("/bios", methods=["GET", "POST"])
-def goto_bios():
-    return render_template('bios.html')
+# @app.route("/bios", methods=["GET", "POST"])
+# def goto_bios():
+#     return render_template('bios.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
