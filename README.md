@@ -1,8 +1,5 @@
 # Movie Finder
-### Movie Recommendation Engine
-
-## Overview
-A movie recommendation website developed using:
+### Movie Recommendation Engine with:
   - Python
   - Machine Learning
   - Amazon AWS
