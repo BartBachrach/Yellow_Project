@@ -19,7 +19,7 @@ The project required the team to identify, clean, filter and repackage data from
 ## Machine Learning Model
 In order to cluster the movies, we found the top most-relevant tag for each movie; with 1128 tags and over fifty thousand movies, there were going to be repeated top-tags. We merged the top tags to our dataframe that contained the movie name, genre, and other metadata and created a pivot table with boolean values for each tag, with the genres as the columns. We converted that table to a csv file and used the elbow curve method to determine the optimal number of clusters was five. We then ran the KMeans algorithm on that dataframe and clustered our movies. The clusters were sci-fi movies, suspense, critically acclaimed, animation, and the final cluster included everything else, as it clustered by the most repeated tags. We then used the clusters to recommend second movies from the same cluster for our recommendation website.
 
-![this is an image](https://github.com/BartBachrach/Yellow_Project/blob/Database/Elbow_Curve.png)
+https://github.com/BartBachrach/Yellow_Project#:~:text=11%20days%20ago-,Elbow_Curve.png,-adding%20screenshot
 
 We further attempted to experiment with more clusters, but those simply represented the next most popular tags from what was already clustered, and did not represent a true multivariate cluster, and for the purposes of this project, we limited the number of clusters to five for simplicitys sake. 
 
