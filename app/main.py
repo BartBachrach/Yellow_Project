@@ -34,26 +34,26 @@ def get_recs():
             print(movie)
         
         year = request.form.get('year')
+        year_1 = year.split(",")[0]
+        year_2 = year.split(",")[1]
         for movie in year:
             print(movie)
 
         rating = request.form.get('rating')
+        rating_1 = rating.split(",")[0]
+        rating_2 = rating.split(",")[1]
         for movie in rating:
             print(movie)
 
-        # query = f"""
-        # SELECT title
-        # FROM full_table
-        # WHERE cluster = {cluster}
-        #     and year = {int(year)}
-        #     and rating = {rating}
-        # """
-
-        query = '''SELECT title FROM full_table
-        WHERE cluster = cluster
-        AND year = year
-        AND rating = rating;
-        '''
+        query = f"""
+        SELECT title
+        FROM full_table
+        WHERE cluster = {cluster}
+            and year BETWEEN {year_1} and {year_2}
+            and rating BETWEEN {rating_1} and {rating_2}
+            ORDER BY RANDOM()
+            LIMIT 1;
+        """
 
         cur.execute(query)
 
@@ -61,8 +61,7 @@ def get_recs():
         for title in data:
             print(title)
 
-    return render_template('recs.html', data = title)
-conn.close()
+        return render_template('recs.html', data = data)
 
 @app.route("/about", methods=["GET", "POST"])
 def goto_about():
